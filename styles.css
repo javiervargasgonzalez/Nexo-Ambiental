@@ -1,0 +1,732 @@
+/* ==============================
+   CONFIGURACIÓN GENERAL
+================================ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --dark-green: #063b38;
+    --sidebar-green: #052f30;
+    --primary-green: #078b69;
+    --light-green: #d9f3e9;
+    --mint: #a9e2d0;
+    --text-dark: #193b4c;
+    --text-gray: #718397;
+    --background: #f3f7f9;
+    --white: #ffffff;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: var(--background);
+    color: var(--text-dark);
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button {
+    font-family: inherit;
+    cursor: pointer;
+    border: none;
+}
+
+
+/* ==============================
+   ESTRUCTURA PRINCIPAL
+================================ */
+
+.dashboard {
+    display: flex;
+    min-height: 100vh;
+}
+
+
+/* ==============================
+   MENÚ LATERAL
+================================ */
+
+.sidebar {
+    width: 245px;
+    min-width: 245px;
+    background: linear-gradient(180deg, #063c39, #032b32);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    padding: 22px 15px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    z-index: 10;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 21px;
+    font-weight: 800;
+    padding: 0 8px 30px;
+    color: #c3f4dc;
+}
+
+.logo i {
+    font-size: 27px;
+    color: #7bdcb6;
+}
+
+.navigation {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    padding: 12px 11px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 500;
+    color: #e1eeed;
+    transition: all 0.25s ease;
+}
+
+.nav-link i {
+    width: 17px;
+    text-align: center;
+    font-size: 14px;
+}
+
+.nav-link:hover {
+    background: rgba(255,255,255,0.12);
+    transform: translateX(3px);
+}
+
+.nav-link.active {
+    background: linear-gradient(90deg, #078b69, #08785e);
+    color: white;
+    font-weight: 700;
+}
+
+.sidebar-profile {
+    margin-top: auto;
+    padding: 18px 5px 5px;
+    border-top: 1px solid rgba(255,255,255,0.2);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.avatar {
+    width: 35px;
+    height: 35px;
+    background: linear-gradient(135deg, #c1eadc, #168f76);
+    border: 2px solid rgba(255,255,255,0.5);
+    color: #06483d;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 11px;
+    font-weight: 800;
+    flex-shrink: 0;
+}
+
+.sidebar-profile strong {
+    display: block;
+    font-size: 11px;
+}
+
+.sidebar-profile small {
+    display: block;
+    color: #a8c5c2;
+    font-size: 9px;
+    margin-top: 4px;
+}
+
+
+/* ==============================
+   CONTENIDO PRINCIPAL
+================================ */
+
+.main-content {
+    margin-left: 245px;
+    width: calc(100% - 245px);
+    min-height: 100vh;
+}
+
+
+/* ==============================
+   BARRA SUPERIOR
+================================ */
+
+.topbar {
+    height: 65px;
+    background: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30px;
+    border-bottom: 1px solid #e7edef;
+}
+
+.breadcrumb {
+    font-size: 12px;
+    color: #8a9aa5;
+}
+
+.topbar-actions {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.topbar-actions button {
+    background: transparent;
+    font-size: 17px;
+    color: #254c59;
+}
+
+.top-avatar {
+    width: 32px;
+    height: 32px;
+}
+
+
+/* ==============================
+   BANNER PRINCIPAL
+================================ */
+
+.hero {
+    min-height: 225px;
+    background:
+        linear-gradient(90deg,
+        rgba(4, 38, 52, 0.75),
+        rgba(4, 47, 54, 0.15)),
+        url("https://www.ier.unam.mx/assets/images/Eolica-meta.jpg");
+
+    background-size: cover;
+    background-position: center 48%;
+    display: flex;
+    align-items: center;
+    padding: 35px 40px;
+    color: white;
+}
+
+.hero-content {
+    max-width: 570px;
+}
+
+.welcome-label {
+    font-size: 10px;
+    letter-spacing: 2px;
+    font-weight: 700;
+    color: #aee9d2;
+}
+
+.hero h1 {
+    font-size: 32px;
+    font-weight: 700;
+    margin: 12px 0 7px;
+}
+
+.hero p {
+    font-size: 14px;
+    line-height: 1.6;
+    max-width: 480px;
+    color: #f0f6f7;
+}
+
+
+/* ==============================
+   BUSCADOR
+================================ */
+
+.search-box {
+    display: flex;
+    align-items: center;
+    background: white;
+    max-width: 550px;
+    height: 43px;
+    border-radius: 7px;
+    margin-top: 17px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+}
+
+.search-box > i {
+    color: #668496;
+    margin: 0 12px;
+    font-size: 14px;
+}
+
+.search-box input {
+    flex: 1;
+    border: none;
+    outline: none;
+    font-size: 11px;
+    min-width: 0;
+    color: var(--text-dark);
+}
+
+.search-box input::placeholder {
+    color: #8b9aa7;
+}
+
+.search-box button {
+    background: var(--primary-green);
+    color: white;
+    width: 45px;
+    height: 43px;
+    transition: background 0.2s;
+}
+
+.search-box button:hover {
+    background: #05684f;
+}
+
+
+/* ==============================
+   SECCIÓN DE CONTENIDO
+================================ */
+
+.content-section {
+    padding: 22px 25px;
+}
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 14px;
+}
+
+
+/* ==============================
+   TARJETAS DE FUNCIONALIDADES
+================================ */
+
+.feature-card {
+    background: white;
+    border: 1px solid #e8eef0;
+    border-radius: 9px;
+    min-height: 105px;
+    padding: 17px 13px;
+    display: flex;
+    align-items: flex-start;
+    gap: 11px;
+    position: relative;
+    box-shadow: 0 3px 10px rgba(24, 59, 76, 0.035);
+    transition: all 0.25s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-4px);
+    border-color: #a5dccc;
+    box-shadow: 0 8px 20px rgba(13, 100, 79, 0.10);
+}
+
+.feature-icon {
+    width: 38px;
+    height: 38px;
+    min-width: 38px;
+    background: #d9f3e9;
+    color: #087e65;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    font-size: 16px;
+}
+
+.feature-card h3 {
+    font-size: 11px;
+    font-weight: 700;
+    color: #24465b;
+    margin: 5px 0 8px;
+}
+
+.feature-card p {
+    font-size: 10px;
+    color: #718397;
+    line-height: 1.55;
+}
+
+.card-arrow {
+    position: absolute;
+    right: 10px;
+    bottom: 12px;
+    font-size: 9px;
+    color: #a5b9b9;
+    opacity: 0;
+    transition: 0.2s;
+}
+
+.feature-card:hover .card-arrow {
+    opacity: 1;
+    right: 7px;
+}
+
+
+/* ==============================
+   PANELES INFERIORES
+================================ */
+
+.bottom-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 14px;
+    margin-top: 15px;
+}
+
+.dashboard-card {
+    background: white;
+    border: 1px solid #e8eef0;
+    border-radius: 9px;
+    padding: 16px;
+    box-shadow: 0 3px 10px rgba(24, 59, 76, 0.035);
+}
+
+.section-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.section-heading h2 {
+    font-size: 12px;
+    color: #23465a;
+}
+
+.section-heading a {
+    font-size: 9px;
+    color: #078b69;
+    font-weight: 600;
+}
+
+.section-heading a:hover {
+    text-decoration: underline;
+}
+
+
+/* ==============================
+   LISTA DE CURSOS Y PROYECTOS
+================================ */
+
+.list-item {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    padding: 12px 0;
+    border-bottom: 1px solid #edf1f2;
+}
+
+.list-item:last-child {
+    border-bottom: none;
+}
+
+.list-icon {
+    width: 34px;
+    height: 34px;
+    min-width: 34px;
+    border-radius: 50%;
+    background: #e0f4ef;
+    color: #087c69;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+}
+
+.list-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.list-info strong {
+    display: block;
+    font-size: 10px;
+    color: #315267;
+    margin-bottom: 5px;
+}
+
+.list-info small {
+    font-size: 9px;
+    color: #8494a0;
+}
+
+
+/* ==============================
+   BARRAS DE PROGRESO
+================================ */
+
+.progress {
+    width: 100%;
+    max-width: 170px;
+    height: 5px;
+    border-radius: 10px;
+    background: #e4edf0;
+    margin-top: 8px;
+    overflow: hidden;
+}
+
+.progress span {
+    display: block;
+    height: 100%;
+    border-radius: 10px;
+    background: #0a9871;
+}
+
+
+/* ==============================
+   INDICADORES ESG
+================================ */
+
+.esg-chart {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    margin: 18px 0;
+}
+
+.chart-circle {
+    width: 105px;
+    height: 105px;
+    border-radius: 50%;
+    background: conic-gradient(
+        #0c9771 0% 78%,
+        #e4efec 78% 100%
+    );
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.chart-inner {
+    width: 79px;
+    height: 79px;
+    background: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.chart-inner strong {
+    font-size: 20px;
+    color: #17475a;
+}
+
+.esg-chart > strong {
+    font-size: 10px;
+    color: #315267;
+}
+
+.indicator {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    margin-top: 13px;
+    font-size: 9px;
+}
+
+.indicator > span:first-child {
+    min-width: 90px;
+    font-weight: 600;
+    color: #38566a;
+}
+
+.dot {
+    width: 7px;
+    height: 7px;
+    display: inline-block;
+    border-radius: 50%;
+    margin-right: 4px;
+}
+
+.green {
+    background: #07966d;
+}
+
+.blue {
+    background: #2386b7;
+}
+
+.yellow {
+    background: #f4bd36;
+}
+
+.indicator-bar {
+    flex: 1;
+    height: 5px;
+    background: #e7eeee;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.indicator-bar span {
+    display: block;
+    height: 100%;
+    background: #07966d;
+    border-radius: 10px;
+}
+
+.indicator:nth-of-type(3) .indicator-bar span {
+    background: #2386b7;
+}
+
+.indicator:nth-of-type(4) .indicator-bar span {
+    background: #f4bd36;
+}
+
+.indicator small {
+    width: 27px;
+    text-align: right;
+    color: #718397;
+    font-size: 9px;
+}
+
+
+/* ==============================
+   PIE DE PÁGINA
+================================ */
+
+footer {
+    padding: 15px 25px;
+    color: #8b9ba5;
+    font-size: 10px;
+    text-align: center;
+}
+
+
+/* ==============================
+   DISEÑO RESPONSIVE
+================================ */
+
+@media (max-width: 1100px) {
+
+    .sidebar {
+        width: 210px;
+        min-width: 210px;
+    }
+
+    .main-content {
+        margin-left: 210px;
+        width: calc(100% - 210px);
+    }
+
+    .feature-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .bottom-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .esg-card {
+        grid-column: span 2;
+    }
+
+}
+
+@media (max-width: 700px) {
+
+    .sidebar {
+        width: 65px;
+        min-width: 65px;
+        padding: 18px 8px;
+        align-items: center;
+    }
+
+    .logo {
+        padding: 0 0 25px;
+    }
+
+    .logo span,
+    .nav-link span,
+    .sidebar-profile > div:last-child {
+        display: none;
+    }
+
+    .nav-link {
+        justify-content: center;
+        padding: 13px 8px;
+        width: 45px;
+    }
+
+    .nav-link i {
+        font-size: 16px;
+    }
+
+    .sidebar-profile {
+        justify-content: center;
+        width: 100%;
+    }
+
+    .main-content {
+        margin-left: 65px;
+        width: calc(100% - 65px);
+    }
+
+    .topbar {
+        padding: 0 15px;
+    }
+
+    .hero {
+        padding: 30px 20px;
+        min-height: 240px;
+    }
+
+    .hero h1 {
+        font-size: 25px;
+    }
+
+    .hero p {
+        font-size: 12px;
+    }
+
+    .content-section {
+        padding: 15px;
+    }
+
+    .feature-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .bottom-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .esg-card {
+        grid-column: auto;
+    }
+
+}
+
+@media (max-width: 380px) {
+
+    .breadcrumb {
+        font-size: 10px;
+    }
+
+    .hero h1 {
+        font-size: 21px;
+    }
+
+    .feature-card {
+        padding: 14px 10px;
+    }
+
+}
+
