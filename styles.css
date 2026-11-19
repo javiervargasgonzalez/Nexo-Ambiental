@@ -65,6 +65,8 @@ button {
     left: 0;
     height: 100vh;
     z-index: 10;
+   overflow-y: auto;
+   scroll-behavior: smooth;
 }
 
 .logo {
