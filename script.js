@@ -97,7 +97,7 @@ profile.style.cursor = 'pointer';
 profile.addEventListener('click', () => {
 
     alert(
-        'Bienvenido a tu perfil de EcoIngenia, Javier.'
+        'Bienvenido a tu perfil de Nexo Ambiental, Javier.'
     );
 
 });
@@ -134,4 +134,4 @@ searchInput.addEventListener('search', () => {
 
 });
 
-console.log('EcoIngenia se ha iniciado correctamente.');
+console.log('Nexo Ambiental se ha iniciado correctamente.');
